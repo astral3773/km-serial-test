@@ -11,6 +11,7 @@ namespace KM_Serial_Test
         private SerialPort _serialPort;
         private readonly List<string> _commandHistory = new List<string>();
         private int _historyIndex = -1;
+        private readonly Timer _pollTimer = new Timer { Interval = 500 };
 
         public Form1()
         {
@@ -22,6 +23,7 @@ namespace KM_Serial_Test
             cmbBaud.Items.AddRange(new object[] { "300", "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200", "230400", "460800", "921600" });
             cmbBaud.SelectedItem = "115200";
             cmbPort.DropDown += CmbPort_DropDown;
+            _pollTimer.Tick += PollTimer_Tick;
             RefreshPorts();
         }
 
@@ -76,6 +78,7 @@ namespace KM_Serial_Test
                 cmbBaud.Enabled = false;
 
                 AppendOutput($"[Connected to {cmbPort.SelectedItem} @ {cmbBaud.SelectedItem} baud]", Color.Cyan);
+                _pollTimer.Start();
             }
             catch (Exception ex)
             {
@@ -102,6 +105,7 @@ namespace KM_Serial_Test
             }
             catch { }
 
+            _pollTimer.Stop();
             btnConnect.Text = "Connect";
             txtCommand.Enabled = false;
             cmbPort.Enabled = true;
@@ -117,6 +121,14 @@ namespace KM_Serial_Test
                 SetStatus("Disconnected", Color.Gray);
                 AppendOutput("[Disconnected]", Color.Cyan);
             }
+        }
+
+        private void PollTimer_Tick(object sender, EventArgs e)
+        {
+            if (_serialPort == null) return;
+
+            if (!Array.Exists(SerialPort.GetPortNames(), p => p == _serialPort.PortName))
+                Disconnect(true);
         }
 
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -170,8 +182,16 @@ namespace KM_Serial_Test
 
         private void SendCommand(string command)
         {
-            if (_serialPort == null || !_serialPort.IsOpen) return;
             if (string.IsNullOrEmpty(command)) return;
+
+            if (command.Equals("cls", StringComparison.OrdinalIgnoreCase) ||
+                command.Equals("clear", StringComparison.OrdinalIgnoreCase))
+            {
+                rtbOutput.Clear();
+                return;
+            }
+
+            if (_serialPort == null || !_serialPort.IsOpen) return;
 
             try
             {
@@ -204,6 +224,9 @@ namespace KM_Serial_Test
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _pollTimer.Stop();
+            _pollTimer.Dispose();
+
             if (_serialPort != null)
             {
                 _serialPort.DataReceived -= SerialPort_DataReceived;

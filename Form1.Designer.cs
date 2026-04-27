@@ -27,9 +27,11 @@ namespace KM_Serial_Test
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.grpConnection.SuspendLayout();
             this.SuspendLayout();
-
+            // 
             // grpConnection
-            this.grpConnection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            this.grpConnection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpConnection.Controls.Add(this.btnConnect);
             this.grpConnection.Controls.Add(this.lblStatus);
             this.grpConnection.Controls.Add(this.lblStatusTitle);
@@ -43,54 +45,9 @@ namespace KM_Serial_Test
             this.grpConnection.TabIndex = 0;
             this.grpConnection.TabStop = false;
             this.grpConnection.Text = "Connection";
-
-            // lblPort
-            this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(8, 26);
-            this.lblPort.Name = "lblPort";
-            this.lblPort.TabIndex = 0;
-            this.lblPort.Text = "Port:";
-
-            // cmbPort
-            this.cmbPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPort.FormattingEnabled = true;
-            this.cmbPort.Location = new System.Drawing.Point(44, 22);
-            this.cmbPort.Name = "cmbPort";
-            this.cmbPort.Size = new System.Drawing.Size(110, 21);
-            this.cmbPort.TabIndex = 1;
-
-            // lblBaud
-            this.lblBaud.AutoSize = true;
-            this.lblBaud.Location = new System.Drawing.Point(162, 26);
-            this.lblBaud.Name = "lblBaud";
-            this.lblBaud.TabIndex = 2;
-            this.lblBaud.Text = "Baud Rate:";
-
-            // cmbBaud
-            this.cmbBaud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBaud.FormattingEnabled = true;
-            this.cmbBaud.Location = new System.Drawing.Point(226, 22);
-            this.cmbBaud.Name = "cmbBaud";
-            this.cmbBaud.Size = new System.Drawing.Size(95, 21);
-            this.cmbBaud.TabIndex = 3;
-
-            // lblStatusTitle
-            this.lblStatusTitle.AutoSize = true;
-            this.lblStatusTitle.Location = new System.Drawing.Point(330, 26);
-            this.lblStatusTitle.Name = "lblStatusTitle";
-            this.lblStatusTitle.TabIndex = 4;
-            this.lblStatusTitle.Text = "Status:";
-
-            // lblStatus
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.Gray;
-            this.lblStatus.Location = new System.Drawing.Point(378, 26);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.TabIndex = 5;
-            this.lblStatus.Text = "Disconnected";
-
+            // 
             // btnConnect
+            // 
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConnect.Location = new System.Drawing.Point(570, 20);
             this.btnConnect.Name = "btnConnect";
@@ -99,25 +56,88 @@ namespace KM_Serial_Test
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.Gray;
+            this.lblStatus.Location = new System.Drawing.Point(378, 26);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(85, 13);
+            this.lblStatus.TabIndex = 5;
+            this.lblStatus.Text = "Disconnected";
+            // 
+            // lblStatusTitle
+            // 
+            this.lblStatusTitle.AutoSize = true;
+            this.lblStatusTitle.Location = new System.Drawing.Point(330, 26);
+            this.lblStatusTitle.Name = "lblStatusTitle";
+            this.lblStatusTitle.Size = new System.Drawing.Size(40, 13);
+            this.lblStatusTitle.TabIndex = 4;
+            this.lblStatusTitle.Text = "Status:";
+            // 
+            // cmbBaud
+            // 
+            this.cmbBaud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBaud.FormattingEnabled = true;
+            this.cmbBaud.Location = new System.Drawing.Point(226, 22);
+            this.cmbBaud.Name = "cmbBaud";
+            this.cmbBaud.Size = new System.Drawing.Size(95, 21);
+            this.cmbBaud.TabIndex = 3;
+            // 
+            // lblBaud
+            // 
+            this.lblBaud.AutoSize = true;
+            this.lblBaud.Location = new System.Drawing.Point(162, 26);
+            this.lblBaud.Name = "lblBaud";
+            this.lblBaud.Size = new System.Drawing.Size(61, 13);
+            this.lblBaud.TabIndex = 2;
+            this.lblBaud.Text = "Baud Rate:";
+            // 
+            // cmbPort
+            // 
+            this.cmbPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPort.FormattingEnabled = true;
+            this.cmbPort.Location = new System.Drawing.Point(44, 22);
+            this.cmbPort.Name = "cmbPort";
+            this.cmbPort.Size = new System.Drawing.Size(110, 21);
+            this.cmbPort.TabIndex = 1;
+            // 
+            // lblPort
+            // 
+            this.lblPort.AutoSize = true;
+            this.lblPort.Location = new System.Drawing.Point(8, 26);
+            this.lblPort.Name = "lblPort";
+            this.lblPort.Size = new System.Drawing.Size(29, 13);
+            this.lblPort.TabIndex = 0;
+            this.lblPort.Text = "Port:";
+            // 
             // lblCommand
+            // 
             this.lblCommand.AutoSize = true;
             this.lblCommand.Location = new System.Drawing.Point(8, 93);
             this.lblCommand.Name = "lblCommand";
+            this.lblCommand.Size = new System.Drawing.Size(57, 13);
             this.lblCommand.TabIndex = 1;
             this.lblCommand.Text = "Command:";
-
+            // 
             // txtCommand
-            this.txtCommand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            this.txtCommand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCommand.Enabled = false;
             this.txtCommand.Location = new System.Drawing.Point(75, 90);
             this.txtCommand.Name = "txtCommand";
             this.txtCommand.Size = new System.Drawing.Size(611, 20);
             this.txtCommand.TabIndex = 2;
             this.txtCommand.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommand_KeyDown);
-
+            // 
             // rtbOutput
-            this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbOutput.BackColor = System.Drawing.Color.Black;
             this.rtbOutput.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbOutput.ForeColor = System.Drawing.Color.White;
@@ -128,8 +148,9 @@ namespace KM_Serial_Test
             this.rtbOutput.Size = new System.Drawing.Size(678, 372);
             this.rtbOutput.TabIndex = 3;
             this.rtbOutput.Text = "";
-
+            // 
             // Form1
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 500);
@@ -137,7 +158,6 @@ namespace KM_Serial_Test
             this.Controls.Add(this.txtCommand);
             this.Controls.Add(this.lblCommand);
             this.Controls.Add(this.grpConnection);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 420);
             this.Name = "Form1";
@@ -148,6 +168,7 @@ namespace KM_Serial_Test
             this.grpConnection.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.GroupBox grpConnection;
